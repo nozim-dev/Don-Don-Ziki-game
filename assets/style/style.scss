@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkalami&family=Bungee+Spice&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  body {
+    background-color: #011627;
+    background-size: cover;
+    color: #fdfffc;
+    font-family: "Bungee Spice", cursive;
+    position: relative;
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      min-height: 100%;
+      z-index: -1;
+
+      @media screen and (max-width: 1200px) {
+        display: none;
+      }
+    }
+
+    .sc0 {
+      display: none;
+    }
+    .score {
+      border-radius: 12px;
+      width: 50%;
+      height: 50vh;
+      border: 1px solid white;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      gap: 50px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 5;
+      font-size: 42px;
+      text-align: center;
+      animation-name: modal;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+        rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+        rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+
+      @keyframes modal {
+        from {
+          transform: scale(-1);
+        }
+        to {
+          transform: scale3d(-5);
+        }
+      }
+
+      .ok {
+        all: unset;
+        width: 100px;
+        height: 30px;
+        font-size: 16px;
+        background: transparent;
+        border: none;
+        position: relative;
+        color: #f0f0f0;
+        cursor: pointer;
+        z-index: 1;
+        padding: 10px 20px;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+        @media screen and (max-width: 650px) {
+          padding: 5px 10px;
+        }
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: -99999;
+          transition: all 0.4s;
+        }
+
+        &::before {
+          transform: translate(0%, 0%);
+          width: 100%;
+          height: 100%;
+          background: #28282d;
+          border-radius: 10px;
+        }
+
+        &::after {
+          transform: translate(10px, 10px);
+          width: 35px;
+          height: 35px;
+          background: #ffffff15;
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          border-radius: 50px;
+        }
+
+        &:hover::before {
+          transform: translate(5%, 20%);
+          width: 110%;
+          height: 110%;
+        }
+
+        &:hover::after {
+          border-radius: 10px;
+          transform: translate(0, 0);
+          width: 100%;
+          height: 100%;
+        }
+
+        &:active::after {
+          transition: 0s;
+          transform: translate(0, 5%);
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        font-size: 32px;
+        width: 80%;
+        height: 50vh;
+      }
+      @media screen and (max-width: 990px) {
+        font-size: 24px;
+        width: 80%;
+        height: 50vh;
+      }
+      @media screen and (max-width: 650px) {
+        font-size: 22px;
+        height: 50vh;
+        width: 80%;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 16px;
+        width: 80%;
+        height: 50vh;
+      }
+    }
+    .filter {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        backdrop-filter: blur(10px);
+      }
+    }
+    .goGame {
+      .gameBox {
+        height: 55vh;
+        text-align: center;
+        display: grid;
+        align-content: center;
+        align-items: center;
+        padding-top: 230px;
+        gap: 100px;
+        .btn_block {
+          .btn_wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 25%;
+            gap: 30px;
+            margin: auto;
+
+            @media screen and (max-width: 990px) {
+              width: 40%;
+            }
+            @media screen and (max-width: 550px) {
+              width: 50%;
+            }
+            @media screen and (max-width: 400px) {
+              width: 100%;
+            }
+          }
+          button {
+            padding: 8px 10px;
+            font-size: 32px;
+            cursor: pointer;
+            transition: all 0.4s;
+            animation-name: animBtn;
+            animation-duration: 0.5s;
+            background-color: rgba(255, 255, 255, 0.9);
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            @keyframes animBtn {
+              from {
+                transform: scale(0);
+              }
+              to {
+                -webkit-transform: scale3d(5, 5, 5);
+                transform: scale3d(5);
+              }
+            }
+
+            @media screen and (max-width: 990px) {
+              font-size: 22px;
+              padding: 5px 7px;
+            }
+
+            &:hover {
+              background-color: #0116277f;
+              color: #fdfffc;
+              border-color: #fdfffc;
+            }
+          }
+          .restart {
+            width: initial;
+            display: inline-block;
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+              sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            padding: 0.3em 1em;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #111;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            cursor: pointer;
+            &:before {
+              content: "";
+              background: linear-gradient(
+                45deg,
+                #ff0000,
+                #ff7300,
+                #fffb00,
+                #48ff00,
+                #00ffd5,
+                #002bff,
+                #7a00ff,
+                #ff00c8,
+                #ff0000
+              );
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              background-size: 400%;
+              z-index: -1;
+              filter: blur(5px);
+              -webkit-filter: blur(5px);
+              width: calc(100% + 4px);
+              height: calc(100% + 4px);
+              animation: glowing-button 20s linear infinite;
+              transition: opacity 0.3s ease-in-out;
+              border-radius: 10px;
+            }
+            @keyframes glowing-button {
+              0% {
+                background-position: 0 0;
+              }
+              50% {
+                background-position: 400% 0;
+              }
+              100% {
+                background-position: 0 0;
+              }
+            }
+            &:after {
+              z-index: -1;
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: #222;
+              left: 0;
+              top: 0;
+              border-radius: 10px;
+            }
+
+            @media screen and (max-width: 400px) {
+              font-size: 22px;
+            }
+          }
+        }
+
+        h1 {
+          font-size: 62px;
+          word-spacing: 10px;
+          letter-spacing: 5px;
+          text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee,
+            2px 1px 1px #cccccc, 1px 2px 1px #eeeeee, 3px 2px 1px #cccccc,
+            2px 3px 1px #eeeeee, 4px 3px 1px #cccccc, 3px 4px 1px #eeeeee,
+            5px 4px 1px #cccccc, 4px 5px 1px #eeeeee, 6px 5px 1px #cccccc,
+            5px 6px 1px #eeeeee, 7px 6px 1px #cccccc;
+          animation-name: animText;
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+          @keyframes animText {
+            from {
+              transform: translateY(-300px);
+            }
+            to {
+              transform: translateY(0);
+            }
+          }
+
+          @media screen and (max-width: 990px) {
+            font-size: 42px;
+          }
+          @media screen and (max-width: 600px) {
+            font-size: 32px;
+          }
+          @media screen and (max-width: 400px) {
+            font-size: 32px;
+          }
+        }
+      }
+
+      .users {
+        height: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-content: flex-end;
+        align-items: flex-end;
+        padding: 0 5%;
+        overflow-x: hidden;
+
+        .man {
+          display: inline-block;
+          height: 100px;
+          display: grid;
+          align-items: flex-end;
+          align-content: flex-end;
+          text-align: center;
+          gap: 10px;
+          position: relative;
+          animation-name: animText1;
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          @keyframes animText1 {
+            from {
+              left: -300px;
+            }
+            to {
+              left: 0;
+            }
+          }
+          img {
+            width: 100px;
+          }
+        }
+        .bot {
+          display: inline-block;
+          height: 100px;
+          display: grid;
+          align-items: flex-end;
+          align-content: flex-end;
+          text-align: center;
+          position: relative;
+          img {
+            width: 150px;
+          }
+
+          animation-name: animText2;
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+          @keyframes animText2 {
+            from {
+              right: -300px;
+            }
+            to {
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
